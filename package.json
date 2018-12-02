@@ -17,6 +17,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
+    "react-loadable": "^5.5.0",
     "umi": "^2.1.2",
     "umi-plugin-react": "^1.2.3"
   },
@@ -30,6 +31,9 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "antd-mobile": "^2.2.6"
+    "antd-mobile": "^2.2.6",
+    "axios": "^0.18.0",
+    "nprogress": "^0.2.0",
+    "react-content-loader": "^3.4.1"
   }
 }

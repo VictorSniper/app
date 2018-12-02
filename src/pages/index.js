@@ -1,6 +1,7 @@
 import styles from './index.css';
 import React from 'react';
 import { SearchBar } from 'antd-mobile';
+import { Carousel } from 'antd';
 class SearchBarExample extends React.Component {
   state = {
     value: '美食',
@@ -8,6 +9,9 @@ class SearchBarExample extends React.Component {
   };
   onChange= (value) => {
     this.setState({ value });
+  };
+  carouselOnChange=(a, b, c)=> {
+  console.log(a, b, c);
   };
   clear = () => {
     this.setState({ value: '' });
@@ -26,6 +30,14 @@ class SearchBarExample extends React.Component {
         showCancelButton
         onChange={this.onChange}
       />
+      <Carousel afterChange={this.carouselOnChange}>
+        <div  className={styles.item} >
+        </div>
+        <div className={styles.item}>
+        </div>
+        <div className={styles.item}>
+        </div>
+      </Carousel>
     </div>);
   }
 }

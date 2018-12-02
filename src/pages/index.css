@@ -21,3 +21,8 @@
 .list code {
   background: #f7f7f7;
 }
+.item{
+  background: url("http://s3.ickimg.com/sitead/27e3ed26e68c8af462a3c8ad2a115edc.jpg")  no-repeat 50% 0;
+  background-size: cover;
+  height: 160px;
+}

@@ -4,6 +4,19 @@ import { connect } from 'dva';
 import { TabBar, Icon } from 'antd-mobile';
 import Link from 'umi/link';
 import router from 'umi/router';
+import NProgress from 'nprogress';
+import ContentLoader, { Facebook } from 'react-content-loader'
+
+const MyLoader = () => (
+  <ContentLoader>
+    {/* Pure SVG */}
+    <rect x="0" y="60" rx="5" ry="5" width="70" height="70" />
+    <rect x="80" y="77" rx="4" ry="4" width="300" height="13" />
+    <rect x="80" y="100" rx="3" ry="3" width="250" height="10" />
+
+  </ContentLoader>
+)
+
 
 class BasicLayout extends React.Component {
 
@@ -14,16 +27,33 @@ class BasicLayout extends React.Component {
     };
   }
 
+
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-        { this.props.children }
+
+
+        {    this.props.loading.global ? (
+          <Facebook/>
+          ) : (
+          this.props.children
+          ) }
 
       </div>
     );
   }
 
   render() {
+    let currHref = '';
+    const href = window.location.href;    // 浏览器地址栏中地址
+    if (currHref !== href) {  // currHref 和 href 不一致时说明进行了页面跳转
+      NProgress.start();    // 页面开始加载时调用 start 方法
+      if (!this.props.loading.global) {  // loading.global 为 false 时表示加载完毕
+        NProgress.done();  // 页面请求完毕时调用 done 方法
+        currHref = href;   // 将新页面的 href 值赋值给 currHref
+      }
+    }
+
     return (
       <TabBar
         unselectedTintColor="#949494"
@@ -103,8 +133,9 @@ class BasicLayout extends React.Component {
 
 
 function mapStateToProps(state) {
+  console.log(state)
 
-  return {...state.data};
+  return {...state.data,loading:state.loading};
 }
 
 // 关联 model
