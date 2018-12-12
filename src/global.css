@@ -98,12 +98,18 @@ body {
   background-color: white;
 }
 
-/*Carousel*/
-.ant-carousel .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 160px;
-  background: #364d79;
-  color: #fff;
-  overflow: hidden;
+
+
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 15px 0 9px 15px;
+}
+.not-square-grid .am-grid-icon {
+  width: 40px;
+  height: 60px;
+}
+
+.my-list .spe .am-list-extra {
+  flex-basis: initial;
 }

@@ -5,14 +5,14 @@ import { TabBar, Icon } from 'antd-mobile';
 import Link from 'umi/link';
 import router from 'umi/router';
 import NProgress from 'nprogress';
-import ContentLoader, { Facebook } from 'react-content-loader'
-
+import ContentLoader, { Facebook,Instagram } from 'react-content-loader'
+const MyInstagramLoader = () => <Instagram />
 const MyLoader = () => (
-  <ContentLoader>
-    {/* Pure SVG */}
-    <rect x="0" y="60" rx="5" ry="5" width="70" height="70" />
-    <rect x="80" y="77" rx="4" ry="4" width="300" height="13" />
-    <rect x="80" y="100" rx="3" ry="3" width="250" height="10" />
+  <ContentLoader
+    height={1000}
+    width={1060}
+  ><Facebook/>
+    <Instagram/>
 
   </ContentLoader>
 )
@@ -33,11 +33,23 @@ class BasicLayout extends React.Component {
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
 
 
-        {    this.props.loading.global ? (
-          <Facebook/>
-          ) : (
+        {/*{    this.props.loading.global ? (*/}
+          {/*<ContentLoader 	height={900}>*/}
+            {/*<rect x="0" y="0" rx="0" ry="0" width="100%" height="44" />*/}
+            {/*<rect x="0" y="45" rx="2" ry="2" width="100%" height="160" />*/}
+
+            {/*<rect x="0" y="230" rx="2" ry="2" width="94" height="64" />*/}
+            {/*<rect x="25%" y="230" rx="2" ry="2" width="96" height="64" />*/}
+            {/*<rect x="50%" y="230" rx="2" ry="2" width="96" height="64" />*/}
+
+            {/*<rect x="75%" y="230" rx="2" ry="2" width="96" height="64" />*/}
+          {/*</ContentLoader>*/}
+          {/*) : (*/}
+          {/*this.props.children*/}
+          {/*) }*/}
+        {
           this.props.children
-          ) }
+        }
 
       </div>
     );
